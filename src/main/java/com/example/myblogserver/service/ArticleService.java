@@ -1,7 +1,6 @@
 package com.example.myblogserver.service;
 
 import com.example.myblogserver.model.Article;
-import com.example.myblogserver.model.TUser;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -14,7 +13,7 @@ public interface ArticleService {
 
     Object delArticle(int id);
 
-    Object updateArticle(int id);
+    Object updateArticle(Article article);
 
     Object findArticle(int id);
 

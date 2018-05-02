@@ -125,8 +125,8 @@ public class SampleController {
     //更新文章
     @ResponseBody
     @PostMapping("/updateArticle")
-    public Object updateArticle(int id) {
-        return articleService.updateArticle(id);
+    public Object updateArticle(Article article) {
+        return articleService.updateArticle(article);
     }
 
     //查询文章

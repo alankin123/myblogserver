@@ -37,17 +37,17 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Object delArticle(int id) {
-        return null;
+        return articlemapper.deleteByPrimaryKey(id);
     }
 
     @Override
-    public Object updateArticle(int id) {
-        return null;
+    public Object updateArticle(Article article) {
+        return articlemapper.updateByExampleWithBLOBs((ArticleWithBLOBs) article, new ArticleExample());
     }
 
     @Override
     public Object findArticle(int id) {
-        return null;
+        return articlemapper.selectByPrimaryKey(id);
     }
 
     @Override

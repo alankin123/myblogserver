@@ -1,13 +1,19 @@
 package com.example.myblogserver.service;
 
+import com.example.myblogserver.mapper.SubjectMapper;
 import com.example.myblogserver.model.Subject;
+import com.example.myblogserver.model.SubjectExample;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class SubjectServiceImpl implements SubjectService {
+    @Autowired
+    private SubjectMapper subjectMapper;//这里会报错，但是并不会影响
+
     @Override
     public Object addSubject(Subject subject) {
-        return null;
+        return subjectMapper.insert(subject);
     }
 
     @Override
@@ -17,12 +23,12 @@ public class SubjectServiceImpl implements SubjectService {
 
     @Override
     public Object updateSubject(Subject subject) {
-        return null;
+        return subjectMapper.updateByExample(subject, new SubjectExample());
     }
 
     @Override
     public Object findSubject(int id) {
-        return null;
+        return subjectMapper.selectByExample(new SubjectExample());
     }
 
     @Override
