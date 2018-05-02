@@ -137,9 +137,14 @@
     bottom: 0;
 }
 
-.editormd{
-    margin-bottom: 0!important;
+.editormd {
+    margin-bottom: 0 !important;
 }
 
+.btn-save {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
 
 

@@ -33,6 +33,7 @@
     </ul>
 </div>
 <div id="right">
+    <input type="button" class="btn-save" value="保存">
     <input type="text" class="edittitle" value="无标题文章">
     <div id="test-editormd">
         <textarea style="display:none;">
@@ -70,7 +71,7 @@
 ```
         </textarea>
     </div>
-    <script src="js/core/editormd.min.js"></script>
+    <script th:src="@{js/core/editormd.min.js}"></script>
     <script type="text/javascript">
         var testEditor;
         $(function () {
@@ -79,7 +80,23 @@
                 height: $("#right").height() - parseInt($("#right").css('padding-top')) - $(".edittitle").height(),
                 // syncScrolling: "single",
                 path: "lib/",
-                watch: false
+                watch: false,
+                saveHTMLToTextarea:true,
+                /**上传图片相关配置如下*/
+                imageUpload: true,
+                imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                imageUploadURL: "/editormdPic"
+            });
+
+            $(".btn-save").click(function () {
+                $.post("/addArticle",
+                    {
+                        innerHtml: testEditor.getHTML(),
+                        innerMarkdown: testEditor.getMarkdown()
+                    },
+                    function () {
+
+                    });
             });
         });
     </script>
